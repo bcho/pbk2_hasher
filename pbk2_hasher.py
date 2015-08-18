@@ -93,7 +93,8 @@ class PBKDF2PasswordHasher(object):
 
     def verify(self, password, encoded):
         algorithm, iterations, salt, hash = encoded.split('$', 3)
-        assert algorithm == self.algorithm
+        if not algorithm == self.algorithm:
+            return False
         encoded_2 = self.encode(password, salt, int(iterations))
         return hmac.compare_digest(force_bytes(encoded),
                                    force_bytes(encoded_2))
