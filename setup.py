@@ -1,7 +1,6 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 
-version = '0.0.1'
-packages = find_packages(exclude=['test*', 'htmlcov'])
+version = '0.0.2'
 
 desc = '''
 A pbk2 hasher implementation that is compatible with django's auth.hashers.
@@ -16,7 +15,7 @@ setup(
     author='hbc',
     author_email='bcxxxxxx@gmail.com',
     license='MIT',
-    packages=packages,
+    py_modules=['pbk2_hasher'],
     zip_safe=False,
     include_package_data=True,
     test_suite='test_pbk2_hasher',
